@@ -24,3 +24,5 @@ spring:
 
 app:
   notificationEmail: vovasamb@yandex.ru
+  bookBackupFile: src/main/resources/backup/bookBackup.txt
+  authorBackupFile: src/main/resources/backup/authorBackup.txt
