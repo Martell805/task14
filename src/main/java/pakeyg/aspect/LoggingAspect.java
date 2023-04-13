@@ -16,8 +16,10 @@ public class LoggingAspect {
     @Around("execution(* pakeyg.controller.AuthorController.*(..))")
     public Object logAuthorMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info("Started author endpoint {}", joinPoint.getSignature().getName());
+        long start = System.currentTimeMillis();
         Object proceed = joinPoint.proceed();
-        log.info("Ended author endpoint {}", joinPoint.getSignature().getName());
+        long executionTime = System.currentTimeMillis() - start;
+        log.info("Ended author endpoint {} in {} ms", joinPoint.getSignature().getName(), executionTime);
 
         return proceed;
     }
@@ -25,8 +27,10 @@ public class LoggingAspect {
     @Around("execution(* pakeyg.controller.BookController.*(..))")
     public Object logBookMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info("Started book endpoint {}", joinPoint.getSignature().getName());
+        long start = System.currentTimeMillis();
         Object proceed = joinPoint.proceed();
-        log.info("Ended book endpoint {}", joinPoint.getSignature().getName());
+        long executionTime = System.currentTimeMillis() - start;
+        log.info("Ended book endpoint {} in {} ms", joinPoint.getSignature().getName(), executionTime);
 
         return proceed;
     }
