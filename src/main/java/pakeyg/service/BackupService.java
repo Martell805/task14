@@ -11,7 +11,6 @@ import javax.management.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
-import java.util.Arrays;
 
 @Service
 @RequiredArgsConstructor
@@ -31,8 +30,6 @@ public class BackupService implements BackupServiceMBean{
         ObjectName objectName = new ObjectName("pakeyg.service:type=basic,name=backup");
         MBeanServer server = ManagementFactory.getPlatformMBeanServer();
         server.registerMBean(this, objectName);
-        System.out.println(server.isRegistered(objectName));
-        System.out.println(Arrays.toString(server.getDomains()));
     }
 
     @Scheduled(cron = "0 0/30 * * * *")

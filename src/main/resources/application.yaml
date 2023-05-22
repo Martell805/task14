@@ -1,4 +1,10 @@
+server:
+  servlet:
+    session:
+      persistent: true
 spring:
+  session:
+    store-type: jdbc
   datasource:
     url: jdbc:postgresql://localhost:5432/books
     username: admin
